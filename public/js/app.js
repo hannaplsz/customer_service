@@ -23826,6 +23826,11 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_8__.createRouter)({
   history: (0,vue_router__WEBPACK_IMPORTED_MODULE_8__.createWebHistory)(),
   routes: routes
 });
+router.beforeEach(function (to, from, next) {
+  if (to.name !== 'login' && !window.Laravel.isLoggedin) next({
+    name: 'login'
+  });else next();
+});
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
 /***/ }),

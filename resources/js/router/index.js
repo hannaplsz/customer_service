@@ -57,4 +57,9 @@ const router = createRouter({
     routes: routes,
 });
 
+router.beforeEach((to, from, next) => {
+    if (to.name !== 'login' && !window.Laravel.isLoggedin) next({ name: 'login' })
+    else next()
+})
+
 export default router;
