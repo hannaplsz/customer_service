@@ -16,6 +16,17 @@ class UserController extends Controller
      */
     public function register(Request $request)
     {
+        /*
+        $data = $request->validate([
+            'name' => 'required|unique:users',
+            'email' => 'required|unique:users',
+            'password' => 'required|confirmed',
+            'role' => 'in:administrator,customer_service',
+        ]);
+
+        // Set default role if not provided in the request
+        $userData = array_merge($data, ['role' => $data['role'] ?? 'customer_service']);
+*/
         try {
             $user = new User();
             $user->name = $request->name;
@@ -43,6 +54,13 @@ class UserController extends Controller
      */
     public function login(Request $request)
     {
+        /*
+        $fields = $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);*/
+
+
         $credentials = [
             'email' => $request->email,
             'password' => $request->password,
