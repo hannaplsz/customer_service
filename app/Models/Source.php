@@ -10,4 +10,6 @@ class Source extends Model
     use HasFactory;
 
     protected $fillable = ['source_name', 'api_key'];
+    protected $primaryKey = 'source_id';
+
 }

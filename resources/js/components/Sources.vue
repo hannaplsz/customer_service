@@ -57,7 +57,7 @@ export default {
             this.$axios.get('/sanctum/csrf-cookie').then(response => {
                 this.$axios.delete(`/api/sources/delete/${id}`)
                     .then(response => {
-                        let i = this.sources.map(item => item.id).indexOf(id); // find index of your object
+                        let i = this.sources.map(item => item.source_id).indexOf(id); // find index of your object
                         this.sources.splice(i, 1)
                     })
                     .catch(function (error) {

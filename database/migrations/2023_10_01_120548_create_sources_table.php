@@ -14,7 +14,9 @@ class CreateSourcesTable extends Migration
     public function up()
     {
         Schema::create('sources', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('source_id');
+            $table->string('source_name');
+            $table->string('api_key');
             $table->timestamps();
         });
     }

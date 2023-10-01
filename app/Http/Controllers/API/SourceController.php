@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Source;
 use Illuminate\Http\Request;
 
 class SourceController extends Controller
@@ -17,11 +18,11 @@ class SourceController extends Controller
         // add source
         public function add(Request $request)
         {
-            $book = new Source([
+            $source = new Source([
                 'source_name' => $request->source_name,
                 'api_key' => $request->api_key
             ]);
-            $book->save();
+            $source->save();
     
             return response()->json('The source successfully added');
         }
