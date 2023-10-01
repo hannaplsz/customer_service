@@ -57,8 +57,9 @@ const router = createRouter({
     routes: routes,
 });
 
+const unauth_routes = ["about", "login", "register", "home"];
 router.beforeEach((to, from, next) => {
-    if (to.name !== 'login' && !window.Laravel.isLoggedin) next({ name: 'login' })
+    if (!unauth_routes.includes(to.name) && !window.Laravel.isLoggedin) next({ name: 'login' })
     else next()
 })
 
