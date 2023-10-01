@@ -10,7 +10,7 @@
                 <!-- for logged-in user-->
                 <div class="navbar-nav" v-if="isLoggedIn">
                     <router-link to="/dashboard" class="nav-item nav-link">Dashboard</router-link>
-                    <router-link to="/sources" class="nav-item nav-link">Sources</router-link>
+                    <router-link to="/sources" class="nav-item nav-link" v-if="user_role === 'administrator'">Sources</router-link>
                     <a class="nav-item nav-link" style="cursor: pointer;" @click="logout">Logout</a>
                 </div>
                 <!-- for non-logged user-->
@@ -33,11 +33,13 @@ export default {
     data() {
         return {
             isLoggedIn: false,
+            user_role: 'customer_service',
         }
     },
     created() {
         if (window.Laravel.isLoggedin) {
-            this.isLoggedIn = true
+            this.isLoggedIn = true;
+            this.user_role = window.Laravel.user.role;
         }
     },
     methods: {

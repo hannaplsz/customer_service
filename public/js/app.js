@@ -22749,12 +22749,14 @@ __webpack_require__.r(__webpack_exports__);
   name: "App",
   data: function data() {
     return {
-      isLoggedIn: false
+      isLoggedIn: false,
+      user_role: 'customer_service'
     };
   },
   created: function created() {
     if (window.Laravel.isLoggedin) {
       this.isLoggedIn = true;
+      this.user_role = window.Laravel.user.role;
     }
   },
   methods: {
@@ -23163,7 +23165,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_6];
     }),
     _: 1 /* STABLE */
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  }), $data.user_role === 'administrator' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
+    key: 0,
     to: "/sources",
     "class": "nav-item nav-link"
   }, {
@@ -23171,7 +23174,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_7];
     }),
     _: 1 /* STABLE */
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     "class": "nav-item nav-link",
     style: {
       "cursor": "pointer"

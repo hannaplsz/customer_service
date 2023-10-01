@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\SourceController;
 use App\Http\Controllers\API\UserController;
-//use App\Http\Middleware\CheckRole;
+use App\Http\Middleware\CheckRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +31,5 @@ Route::group(['prefix' => 'sources', 'middleware' => 'auth:sanctum'], function (
     Route::post('add', [SourceController::class, 'add']);
     Route::get('edit/{id}', [SourceController::class, 'edit']);
     Route::post('update/{id}', [SourceController::class, 'update']);
-    Route::delete('delete/{id}', [SourceController::class, 'delete']);
+    Route::delete('delete/{id}', [SourceController::class, 'delete'])->middleware('restrictRole:administrator');;
 });
