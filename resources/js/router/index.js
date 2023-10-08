@@ -6,9 +6,9 @@ import Register from '../pages/Register';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
 
-import Sources from '../components/Sources';
-import AddSource from '../components/AddSource';
-import EditSource from '../components/EditSource';
+import Sources from '../components/sources/Sources';
+import AddSource from '../components/sources/AddSource';
+import EditSource from '../components/sources/EditSource';
 
 export const routes = [{
         name: 'home',
